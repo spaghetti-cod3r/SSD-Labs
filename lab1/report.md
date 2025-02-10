@@ -1,5 +1,7 @@
 # Secure System Development - Lab 1
 
+The repo link to check the files used in this assignment: https://github.com/spaghetti-cod3r/SSD-Labs/blob/main/lab1/report.md
+
 ## Task 1 - GitLab Server
 
 - Let's first initialize an instance on AWS and connect to it using our local machine via ssh, and then install docker and docker-compose there
