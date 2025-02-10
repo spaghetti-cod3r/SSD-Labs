@@ -1,6 +1,6 @@
 # Secure System Development - Lab 1
 
-The repo link to check the files used in this assignment: https://github.com/spaghetti-cod3r/SSD-Labs/blob/main/lab1/
+The repo link to check the files used in this assignment: [full report](https://github.com/spaghetti-cod3r/SSD-Labs/tree/main/lab1)
 
 ## Task 1 - GitLab Server
 
@@ -46,4 +46,4 @@ The repo link to check the files used in this assignment: https://github.com/spa
 
   - avoid using functions like `shell_exec`, `exec`, or `system` with user-controlled input
   - sanitize and validate all inputs rigorously
-  - ue safer alternatives like parameterized commands or libraries that handle shell execution securely
+  - use safer alternatives like parameterized commands or libraries that handle shell execution securely
