@@ -1,0 +1,13 @@
+                                                             
+stages:
+  - test
+
+semgrep-sast:
+  stage: test
+  script:
+    - semgrep --config=auto --json > semgrep-report.json
+  artifacts:
+    paths:
+      - semgrep-report.json
+  rules:
+    - if: $CI_COMMIT_REF_NAME == "main"
