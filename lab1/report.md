@@ -1,6 +1,6 @@
 # Secure System Development - Lab 1
 
-The repo link to check the files used in this assignment: https://github.com/spaghetti-cod3r/SSD-Labs/blob/main/lab1/report.md
+The repo link to check the files used in this assignment: https://github.com/spaghetti-cod3r/SSD-Labs/blob/main/lab1/
 
 ## Task 1 - GitLab Server
 
