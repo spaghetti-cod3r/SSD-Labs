@@ -134,17 +134,20 @@
 ## Task2:
 
 - let's install and run `burp`:
-- ![](assets/image19.png)
+- ![img](assets/image19.png)
 - then let's install firefox and set the proxy to `127.0.0.1:8080` to interact with `burp` (becuase i use `chromium`)
-- **note**: it was hell to find out that this little stupid flag `network.proxy.allow_hijacking_localhost` should be toggled to allow capturing the localhost
+- **note**: it was **painful** to find out that this little stupid flag `network.proxy.allow_hijacking_localhost` should be toggled to allow capturing the localhost
+- ![img](assets/m3.jpg)
 
 ### Cross Site Scripting
 
 - let's pull and run the docker image:
-- ![](assets/image20.png)
+- ![img](assets/image20.png)
 - after some tries, let's try to insert :
-- ![](assets/image21.png)
+- ![img](assets/image21.png)
 - XSS is found!
+- when i find XSS, me for no reason:
+- ![img](assets/m1.jpg)
 - why it's dangerous?
   there are a lot of reasons (like a lot!), one of them that it allows attackers to hijack cookies sessions, personal information, or login credentials
 - possible mitigation:
@@ -154,15 +157,16 @@
 ### SQL Injection
 
 - let's pull and run the docker image:
-- ![](assets/image22.png)
+- ![img](assets/image22.png)
 - let's try to insert a `'` in the url:
-- ![](assets/image24.png)
+- ![img](assets/image24.png)
 - a good start! now we know that we are dealing with 3 columns
 - let's try the following:
-- ![](assets/image25.png)
+- ![img](assets/image25.png)
 - so `title` and `content` became placeholders for data
-- let's try the following by trying some guesses for the users talbe (user, users, ...):
-- ![](assets/image26.png)
+- let's try the following by trying some guesses for the users table (user, users, ...):
+- found the correct table name, `users`, now let's append ``union select * from users``
+- ![img](assets/image26.png)
 - we got the usernmae and password of the admin hehe
 - why it's dangerous?
   for many reasons, for example attackers can extract sensitive data such as usernames, passwords, credit card numbers, and personal information from the database
@@ -172,11 +176,12 @@
 ### Path Traversal
 
 - let's pull and run the docker image:
-- ![](assets/image27.png)
+- ![img](assets/image27.png)
 - after we inspect the page, we can see that each option is a path for a file in the system
-- ![](assets/image28.png)
-- after modifying the first option value to `../../../../../../../../../../../etc/passwd we can see:`
-- ![](assets/image29.png)
+- ![img](assets/image28.png)
+- after modifying the first option value to `../../../../../../../../../../../etc/passwd` we can see:
+- ![img](assets/m2.jpg)
+- ![img](assets/image29.png)
 - why it's dangerous?
   because attackers can access sensitive files such as `/etc/passwd` (as we already did) .env, or database credentials and expose sensitive information
 - possible mitigation:
@@ -218,6 +223,7 @@
 - let's check the terminal:
 - ![img](assets/image41.png)
 - baaang! we exposed the whole system structure and its files
+- ![img](assets/m4.jpg)
 - why it's dangerous?
   because it allows an attacker to execute arbitrary system commands on a server leading to full system compromise, data theft, and destruction of files
 - possible mitigations:
