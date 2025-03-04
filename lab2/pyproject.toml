@@ -1,0 +1,23 @@
+[project]
+name = "lab2"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Ammar Meslmani",email = "a.meslmani@innopolis.university"}
+]
+readme = "README.md"
+requires-python = ">=3.13,<4.0"
+dependencies = [
+    "urllib3 (>=2.3.0,<3.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.group.dev.dependencies]
+bandit = "^1.8.3"
+flawfinder = "^2.0.19"
+njsscan = "^0.4.3"
+
