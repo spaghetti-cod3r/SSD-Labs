@@ -1,0 +1,24 @@
+services:
+  app:
+    container_name: jucie-shop
+    image: bkimminich/juice-shop 
+    ports:
+      - "3000:3000"
+    networks:
+      - appnet
+  
+  waf:
+    container_name: web-application-firewall
+    image: owasp/modsecurity-crs:nginx
+    volumes:
+      - ./custom_rules/custom-rule.conf:/etc/modsecurity.d/owasp-crs/rules/custom-rule.conf
+    environment:
+      - BACKEND=http://app:3000
+    ports:
+      - "9000:8080"
+    networks:
+      - appnet
+
+networks:
+  appnet:
+    driver: bridge
